@@ -1,0 +1,18 @@
+DECIMA WEBSITE - LIVE SERVER STARTUP
+
+1. Extract the full ZIP first. Do not open index.html from inside the ZIP.
+2. In Visual Studio Code, choose File > Open Folder.
+3. Select the extracted Decima_Live_Server_Ready folder.
+4. Confirm that index.html and the assets folder are beside each other.
+5. Right-click index.html and choose Open with Live Server.
+6. If an old unstyled page is cached, press Ctrl+F5.
+
+The correct structure is:
+Decima_Live_Server_Ready/
+  index.html
+  about.html
+  services.html
+  assets/
+  venobox/
+
+Opening only an individual HTML file outside this folder will cause the CSS, JavaScript, logos, and images to disappear.
