@@ -1,35 +1,35 @@
 # Decima Website Asset Folder Guide
 
-The active website images are organized by page so replacements can be made without searching through unrelated template files.
+## Shared Insights images
 
-## Main structure
+All Insight card and article images are stored in:
+
+`assets/images/insights/`
+
+Each Insight uses one image file everywhere it appears: the Home page, Insights listing page, its article page, related Insight cards, and article breadcrumb background. Replace the file while keeping the same filename.
+
+## Shared Latest Work images
+
+All project and Latest Work images are stored in:
+
+`assets/images/latest-work/`
+
+Each project uses one image file everywhere it appears: the Home page Latest Work section, Latest Work and Projects pages, related-work cards, service-page project cards, and the project detail page. Replace the file while keeping the same filename.
+
+## Other website images
 
 - `assets/images/shared/branding/` — logos, favicon, and social-sharing cover.
-- `assets/images/pages/home/` — every image used specifically on the home page.
-  - `hero/` — the two home-page hero slides.
-  - `about-section/` — the home-page About/Discover Decima images only.
-  - `services-section/` — service images used only on the home page.
-  - `team-section/` — leadership previews used on the home page.
-  - `insights-section/` — insight previews used on the home page.
-  - `clients-partners/logos/` — high-resolution client and partner logos.
-  - `map/` — home-page world map.
-  - `decorative/` — decorative shapes used on the home page.
-- `assets/images/pages/about/` — About page header and content images. These are separate copies from the home-page About section.
-- `assets/images/pages/careers/` — Careers hero/header and culture content image.
-- `assets/images/pages/team/` — Team page header and leadership profile photos.
-- `assets/images/pages/services/` — Services page header, cards, sector image, and separate detail-page hero folders.
-- `assets/images/pages/projects/` — Projects page header, reusable project library, and separate hero folders for each project detail page.
-- `assets/images/pages/latest-work/` — Latest Work page header.
-- `assets/images/pages/insights/` — Insights listing header/cards plus separate header and main-image folders for each article.
+- `assets/images/pages/home/` — Home-only hero, About, Services, Team, partner-logo, map, and decorative images.
+- `assets/images/pages/about/` — About page header and content images.
+- `assets/images/pages/careers/` — Careers header and content image.
 - `assets/images/pages/contact/` — Contact page header.
-- `assets/images/_archive/` — original template-support images and older low-resolution partner logos retained only as a backup.
+- `assets/images/pages/insights/header/` — Insights listing-page header only.
+- `assets/images/pages/latest-work/header/` — Latest Work listing-page header only.
+- `assets/images/pages/projects/header/` — Projects listing-page header only.
+- `assets/images/pages/services/` — Services page and service-detail images.
+- `assets/images/pages/team/` — Team page header and profile images.
+- `assets/images/_archive/` — old template-support files retained as backup.
 
-## Important editing rule
+## Replacement rules
 
-Each main page header has its own physical image file. Replacing `pages/about/header/about-header.webp` changes only the About page. Replacing `pages/careers/header/careers-header.webp` changes only Careers, and the same rule applies to Services, Projects, Latest Work, Insights, Team, and Contact.
-
-The home-page About images and About-page content images are also separate. This allows the home-page section and the full About page to use completely different photography.
-
-## Recommended replacement format
-
-Keep the existing filename and use optimized WebP images. Header images should ideally be at least 1920 × 740 pixels. Content photos should match the approximate aspect ratio of the file being replaced to avoid unexpected cropping.
+Keep the existing filename and WebP format. Recommended sizes are 1200 × 760 px for Insights and 1500 × 950 px for Latest Work. Refresh with Ctrl+F5 after replacing an image.

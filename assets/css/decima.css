@@ -2378,13 +2378,13 @@ body :is(.slider-button, .feature-button, .about-button, .service-button, .inner
   background-image: linear-gradient(90deg, rgba(16,16,16,.96), rgba(16,16,16,.74), rgba(16,16,16,.22)), url('../images/pages/contact/header/contact-header.webp') !important;
 }
 .insight-ai-ready-data-center-infrastructure-page .breadcumb-area.decima-breadcrumb {
-  background-image: linear-gradient(90deg, rgba(16,16,16,.95), rgba(16,16,16,.72), rgba(16,16,16,.2)), url('../images/pages/insights/articles/insight-ai-ready-data-center-infrastructure/header.webp') !important;
+  background-image: linear-gradient(90deg, rgba(16,16,16,.95), rgba(16,16,16,.72), rgba(16,16,16,.2)), url('../images/insights/insight-ai-ready-data-center-infrastructure.webp') !important;
 }
 .insight-program-governance-complex-capital-programs-page .breadcumb-area.decima-breadcrumb {
-  background-image: linear-gradient(90deg, rgba(16,16,16,.95), rgba(16,16,16,.72), rgba(16,16,16,.2)), url('../images/pages/insights/articles/insight-program-governance-complex-capital-programs/header.webp') !important;
+  background-image: linear-gradient(90deg, rgba(16,16,16,.95), rgba(16,16,16,.72), rgba(16,16,16,.2)), url('../images/insights/insight-program-governance-complex-capital-programs.webp') !important;
 }
 .insight-alternative-fuels-data-center-transition-page .breadcumb-area.decima-breadcrumb {
-  background-image: linear-gradient(90deg, rgba(16,16,16,.95), rgba(16,16,16,.72), rgba(16,16,16,.2)), url('../images/pages/insights/articles/insight-alternative-fuels-data-center-transition/header.webp') !important;
+  background-image: linear-gradient(90deg, rgba(16,16,16,.95), rgba(16,16,16,.72), rgba(16,16,16,.2)), url('../images/insights/insight-alternative-fuels-data-center-transition.webp') !important;
 }
 
 /* 1. Keep the Discover Decima Story square fully inside the black About Us button. */
