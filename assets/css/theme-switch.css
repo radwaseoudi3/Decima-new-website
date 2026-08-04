@@ -809,3 +809,19 @@ html[data-theme="light"] :is(.cta-band,.careers-hero,.project-detail-hero,.proof
 html[data-theme="light"] .decima-template-projects .project-content h4 {
   color: #ffffff !important;
 }
+
+/* Pre-footer CTA button: guaranteed contrast in dark mode on every page. */
+html:not([data-theme="light"]) .cta-band .decima-btn.is-light,
+html:not([data-theme="light"]) .cta-band .decima-btn.is-light :is(i, span) {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #101010 !important;
+}
+html:not([data-theme="light"]) .cta-band .decima-btn.is-light:hover,
+html:not([data-theme="light"]) .cta-band .decima-btn.is-light:focus-visible,
+html:not([data-theme="light"]) .cta-band .decima-btn.is-light:hover :is(i, span),
+html:not([data-theme="light"]) .cta-band .decima-btn.is-light:focus-visible :is(i, span) {
+  background: #101010 !important;
+  border-color: #101010 !important;
+  color: #ffffff !important;
+}
