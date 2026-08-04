@@ -56,6 +56,37 @@
     };
   }
 
+  function applyProjectFilters(grid) {
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll('[data-project-categories]'));
+    const activeRegion = grid.dataset.activeRegion || 'All';
+    const activeCategory = grid.dataset.activeCategory || 'All';
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const categories = (card.dataset.projectCategories || '').split('|');
+      const regions = (card.dataset.projectRegions || '').split('|');
+      const matchesRegion = activeRegion === 'All' || regions.includes(activeRegion) || regions.includes('Global');
+      const matchesCategory = activeCategory === 'All' || categories.includes(activeCategory);
+      const visible = matchesRegion && matchesCategory;
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+
+    const section = grid.closest('section');
+    const count = section ? section.querySelector('.project-results-count') : null;
+    const emptyState = section ? section.querySelector('.project-empty-state') : null;
+    const map = document.querySelector('[data-project-region-controller="#' + grid.id + '"]');
+    const mapStatus = map ? map.querySelector('.project-map-status') : null;
+    const regionLabel = activeRegion === 'All' ? 'all regions' : activeRegion;
+    const typeLabel = activeCategory === 'All' ? 'all project types' : activeCategory;
+    const profileWord = visibleCount === 1 ? 'profile' : 'profiles';
+
+    if (count) count.textContent = 'Showing ' + visibleCount + ' project ' + profileWord + ' for ' + regionLabel + ' · ' + typeLabel;
+    if (mapStatus) mapStatus.textContent = 'Showing ' + visibleCount + ' project ' + profileWord + ' associated with ' + regionLabel + '.';
+    if (emptyState) emptyState.hidden = visibleCount !== 0;
+  }
+
   function initMaps() {
     document.querySelectorAll('.project-map').forEach((map) => {
       const canvas = map.querySelector('.map-canvas');
@@ -91,6 +122,11 @@
         pin.addEventListener('focus', showTooltip);
         pin.addEventListener('mouseleave', hideTooltip);
         pin.addEventListener('blur', hideTooltip);
+        pin.addEventListener('click', () => {
+          const regionButton = map.querySelector('[data-map-filter="' + location.region + '"]');
+          if (regionButton) regionButton.click();
+          showTooltip();
+        });
         canvas.appendChild(pin);
 
         if (directory) {
@@ -104,8 +140,11 @@
       map.querySelectorAll('[data-map-filter]').forEach((button) => {
         button.addEventListener('click', () => {
           const region = button.dataset.mapFilter;
-          map.querySelectorAll('[data-map-filter]').forEach((b) => b.classList.remove('is-active'));
-          button.classList.add('is-active');
+          map.querySelectorAll('[data-map-filter]').forEach((b) => {
+            const active = b === button;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', String(active));
+          });
           map.querySelectorAll('.map-pin').forEach((pin) => {
             const matches = region === 'All' || pin.dataset.region === region;
             pin.classList.toggle('is-dimmed', !matches);
@@ -115,6 +154,15 @@
               const matches = region === 'All' || item.dataset.region === region;
               item.hidden = !matches;
             });
+          }
+
+          const targetSelector = map.dataset.projectRegionController;
+          const grid = targetSelector ? document.querySelector(targetSelector) : null;
+          if (grid) {
+            grid.dataset.activeRegion = region;
+            applyProjectFilters(grid);
+            const portfolioHeading = grid.closest('section')?.querySelector('.decima-heading');
+            if (portfolioHeading) portfolioHeading.setAttribute('tabindex', '-1');
           }
         });
       });
@@ -135,18 +183,35 @@
       const targetSelector = group.dataset.projectFilterGroup;
       const grid = document.querySelector(targetSelector);
       if (!grid) return;
-      const cards = Array.from(grid.querySelectorAll('[data-project-categories]'));
+
       group.querySelectorAll('[data-project-filter]').forEach((button) => {
         button.addEventListener('click', () => {
           const filter = button.dataset.projectFilter;
-          group.querySelectorAll('[data-project-filter]').forEach((b) => b.classList.remove('is-active'));
-          button.classList.add('is-active');
-          cards.forEach((card) => {
-            const categories = (card.dataset.projectCategories || '').split('|');
-            card.hidden = filter !== 'All' && !categories.includes(filter);
+          group.querySelectorAll('[data-project-filter]').forEach((b) => {
+            const active = b === button;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', String(active));
           });
+          grid.dataset.activeCategory = filter;
+          applyProjectFilters(grid);
         });
       });
+
+      const section = grid.closest('section');
+      const reset = section ? section.querySelector('[data-reset-project-filters]') : null;
+      if (reset) {
+        reset.addEventListener('click', () => {
+          grid.dataset.activeRegion = 'All';
+          grid.dataset.activeCategory = 'All';
+          const allType = group.querySelector('[data-project-filter="All"]');
+          if (allType) allType.click();
+          const map = document.querySelector('[data-project-region-controller="#' + grid.id + '"]');
+          const allRegion = map ? map.querySelector('[data-map-filter="All"]') : null;
+          if (allRegion) allRegion.click();
+        });
+      }
+
+      applyProjectFilters(grid);
     });
   }
 

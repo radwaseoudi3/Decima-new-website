@@ -23,8 +23,8 @@ body.light-theme {
     color: #303030 !important;
     background-image: linear-gradient(
       to right,
-      #f94c30,
-      #f94c30 50%,
+      #8c1b1c,
+      #8c1b1c 50%,
       #303030 50%
     );
 }
@@ -90,7 +90,7 @@ body.light-theme {
 }
 
 .light-theme .feature-single-box:hover .feature-icon span {
-    color: #f94c30 !important;
+    color: #8c1b1c !important;
 }
 
 
@@ -144,7 +144,7 @@ body.light-theme {
 }
 
 .light-theme .elementor-about-title a:hover p {
-    color: #f94c30 !important;
+    color: #8c1b1c !important;
 }
 
 .light-theme .about-icon span {
@@ -201,7 +201,7 @@ body.light-theme {
 }
 
 .light-theme .single-testimonial-box:hover .testi-content h5{
-    color: #f94c30 !important;
+    color: #8c1b1c !important;
 }
 
 /* Blog */
@@ -305,7 +305,7 @@ body.light-theme {
 }
 
 .light-theme .contact-information2:hover .contacts-icon {
-    background-color: #f94c30 !important;
+    background-color: #8c1b1c !important;
 }
 
 .light-theme .contacts-title h6 {
@@ -386,7 +386,7 @@ body.light-theme {
 }
 
 .light-theme .blogs-section ul.sidebar-menu li:hover a i {
-    background-color: #f94c30 !important;
+    background-color: #8c1b1c !important;
 }
 
 .light-theme .blogs-section .tag-item a {

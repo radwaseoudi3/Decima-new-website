@@ -1,0 +1,811 @@
+/*
+  Decima International theme switch
+  Approved accent: #8c1b1c only.
+  The default "dark" setting preserves the existing design. The light setting
+  changes surfaces, navigation, panels, and typography without duplicating pages.
+*/
+
+:root {
+  --decima-burgundy: #8c1b1c !important;
+  --decima-burgundy-dark: #101010 !important;
+  --decima-burgundy-deep: #101010 !important;
+  --theme-bg: #101010;
+  --theme-surface: #1a1a1a;
+  --theme-text: #ffffff;
+  --theme-muted: #d6d6d1;
+  --theme-border: rgba(255,255,255,.18);
+  --bs-danger: #8c1b1c;
+}
+
+html { color-scheme: dark; }
+html[data-theme="light"] { color-scheme: light; }
+
+/* The only active red is the approved Decima burgundy. */
+.text-danger,
+.link-danger,
+.border-danger { color: #8c1b1c !important; border-color: #8c1b1c !important; }
+.bg-danger { background-color: #8c1b1c !important; }
+
+/* Avoid same-color hover states while retaining one burgundy shade. */
+.header-button a:hover,
+.decima-btn:not(.is-outline):not(.is-outline-light):not(.is-light):hover {
+  background: #101010 !important;
+  border-color: #101010 !important;
+  color: #ffffff !important;
+}
+.decima-btn.is-light {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #101010 !important;
+}
+.decima-btn.is-light:hover {
+  background: #101010 !important;
+  border-color: #101010 !important;
+  color: #ffffff !important;
+}
+.decima-btn.is-outline:hover {
+  background: #8c1b1c !important;
+  border-color: #8c1b1c !important;
+  color: #ffffff !important;
+}
+.decima-btn.is-outline-light:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #101010 !important;
+}
+
+/* Burgundy sections always use neutral white content, never red on red. */
+:is(.decima-section.is-burgundy, .cta-band, .counter-area.one.decima-counters) :is(h1,h2,h3,h4,h5,h6,p,li,span,strong,a),
+:is(.decima-section.is-burgundy, .cta-band, .counter-area.one.decima-counters) .section-kicker,
+:is(.decima-section.is-burgundy, .cta-band, .counter-area.one.decima-counters) .decima-heading span {
+  color: #ffffff !important;
+}
+:is(.decima-section.is-burgundy, .cta-band, .counter-area.one.decima-counters) .section-kicker::before {
+  background: #ffffff !important;
+}
+
+/* The map uses the approved burgundy plus neutral black only. */
+.location-map-section {
+  background: radial-gradient(circle at 20% 20%, #8c1b1c 0%, #101010 58%, #101010 100%) !important;
+}
+.map-pin { background: #8c1b1c !important; }
+.map-pin:hover,
+.map-pin:focus-visible,
+.map-pin.is-active {
+  background: #ffffff !important;
+  border-color: #8c1b1c !important;
+}
+
+/* Theme control */
+.theme-toggle {
+  position: fixed;
+  z-index: 9998;
+  left: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid #8c1b1c;
+  border-radius: 999px;
+  background: #101010;
+  color: #ffffff;
+  box-shadow: 0 12px 35px rgba(0,0,0,.26);
+  font: 600 12px/1 "Poppins", sans-serif;
+  letter-spacing: .02em;
+  cursor: pointer;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: #8c1b1c;
+  color: #ffffff;
+  border-color: #8c1b1c;
+}
+.theme-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+}
+.theme-toggle-text { white-space: nowrap; }
+
+/* Light theme: navigation and contact drawer */
+html[data-theme="light"] body {
+  background: #f7f7f5;
+  color: #101010;
+}
+html[data-theme="light"] .hendre_nav_manu,
+html[data-theme="light"] .hendre_nav_manu.sticky {
+  background: rgba(255,255,255,.98) !important;
+  border-bottom-color: #ddddda;
+  box-shadow: 0 10px 30px rgba(16,16,16,.09);
+}
+html[data-theme="light"] .hendre_menu > ul > li > a,
+html[data-theme="light"] .hendre_menu > ul > li.current > a,
+html[data-theme="light"] .sidebar-btn .nav-btn span {
+  color: #101010 !important;
+}
+html[data-theme="light"] .hendre_menu ul .sub-menu {
+  background: #ffffff;
+  border-top-color: #8c1b1c;
+}
+html[data-theme="light"] .hendre_menu ul .sub-menu li a { color: #101010; }
+html[data-theme="light"] .hendre_menu ul .sub-menu li a:hover {
+  background: #f1f1ee;
+  color: #8c1b1c;
+}
+html[data-theme="light"] .hendre_nav_manu .logo img,
+html[data-theme="light"] .mobile-brand img,
+html[data-theme="light"] .xs-sidebar-group .nav-logo img {
+  content: url('../images/shared/branding/logo-burgundy.png');
+}
+html[data-theme="light"] .mobile-menu-area,
+html[data-theme="light"] .mean-container .mean-bar,
+html[data-theme="light"] .mean-container .mean-nav {
+  background: #ffffff !important;
+}
+html[data-theme="light"] .mean-container .mean-bar::before {
+  background-image: url('../images/shared/branding/logo-burgundy.png') !important;
+}
+html[data-theme="light"] .mean-container a.meanmenu-reveal {
+  color: #101010 !important;
+  border-color: #101010 !important;
+}
+html[data-theme="light"] .mean-container .mean-nav ul li a {
+  color: #101010 !important;
+  border-top-color: #ddddda !important;
+}
+html[data-theme="light"] .mean-container .mean-nav ul li a.mean-expand {
+  border-left-color: #ddddda !important;
+}
+html[data-theme="light"] .xs-sidebar-group .xs-sidebar-widget {
+  background: #ffffff !important;
+}
+html[data-theme="light"] .xs-sidebar-group .close-side-widget,
+html[data-theme="light"] .sidebar-info-contents .content-inner,
+html[data-theme="light"] .sidebar-info-contents .contact-info h2,
+html[data-theme="light"] .sidebar-quick-links a {
+  color: #101010 !important;
+}
+html[data-theme="light"] .sidebar-info-contents .contact-info li {
+  color: #454543 !important;
+  border-bottom-color: #ddddda !important;
+}
+html[data-theme="light"] .sidebar-quick-links a {
+  border-bottom-color: #ddddda !important;
+}
+html[data-theme="light"] .social-box.decima-social li a {
+  color: #8c1b1c !important;
+  border-color: #8c1b1c !important;
+}
+html[data-theme="light"] .social-box.decima-social li a:hover {
+  color: #ffffff !important;
+  background: #8c1b1c !important;
+}
+
+/* Light theme: core page surfaces */
+html[data-theme="light"] .decima-section.is-white,
+html[data-theme="light"] .brand-area.one.decima-partners,
+html[data-theme="light"] .decima-partners .single-brand {
+  background: #ffffff !important;
+}
+html[data-theme="light"] .decima-section.is-offwhite,
+html[data-theme="light"] .decima-home-about {
+  background: #f1f1ee !important;
+}
+html[data-theme="light"] .decima-section.is-dark {
+  background: #f1f1ee !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-section.is-dark :is(h1,h2,h3,h4,h5,h6,strong),
+html[data-theme="light"] .decima-section.is-dark .decima-heading {
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-section.is-dark :is(p,li,.copy-large,.section-intro),
+html[data-theme="light"] .strategy-card p,
+html[data-theme="light"] .approach-step p {
+  color: #5f5f5a !important;
+}
+html[data-theme="light"] .decima-section.is-dark .section-kicker,
+html[data-theme="light"] .decima-section.is-dark .decima-heading span,
+html[data-theme="light"] .strategy-card span,
+html[data-theme="light"] .approach-step span {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-section.is-dark .section-kicker::before {
+  background: #8c1b1c !important;
+}
+html[data-theme="light"] .strategy-grid,
+html[data-theme="light"] .strategy-card,
+html[data-theme="light"] .approach-steps,
+html[data-theme="light"] .approach-step {
+  border-color: #d6d6d1 !important;
+}
+html[data-theme="light"] .strategy-card h3,
+html[data-theme="light"] .approach-step h3 { color: #101010 !important; }
+
+/* Light theme: cards and forms */
+html[data-theme="light"] :is(.decima-project-card,.leader-card,.insight-card,.value-card,.sector-item,.capability-card,.career-benefit,.office-card,.project-fact) {
+  background: #ffffff !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] :is(.project-card-body,.leader-body,.insight-body,.value-card,.capability-card,.career-benefit,.office-card,.project-fact) :is(h1,h2,h3,h4,h5,h6,strong,a) {
+  color: #101010;
+}
+html[data-theme="light"] :is(.project-card-body,.leader-body,.insight-body,.value-card,.capability-card,.career-benefit,.office-card,.project-fact) :is(p,li,span) {
+  color: #5f5f5a;
+}
+html[data-theme="light"] :is(.leader-role,.insight-meta,.office-label,.article-meta-line,.meta-chip) {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .meta-chip { background: #f1f1ee !important; }
+html[data-theme="light"] .project-disclaimer {
+  background: #f1f1ee !important;
+  color: #454543 !important;
+}
+html[data-theme="light"] .form-field input,
+html[data-theme="light"] .form-field select,
+html[data-theme="light"] .form-field textarea {
+  background: #ffffff !important;
+  color: #101010 !important;
+  border-color: #cfcfca !important;
+}
+html[data-theme="light"] .form-field input::placeholder,
+html[data-theme="light"] .form-field textarea::placeholder { color: #777772; }
+
+/* Light theme: formerly dark information panels */
+html[data-theme="light"] .detail-hero-grid { background: #f1f1ee !important; }
+html[data-theme="light"] .detail-hero-copy { color: #101010 !important; }
+html[data-theme="light"] .detail-hero-copy h1 { color: #101010 !important; }
+html[data-theme="light"] .detail-hero-copy p { color: #5f5f5a !important; }
+html[data-theme="light"] .detail-hero-copy .section-kicker { color: #8c1b1c !important; }
+html[data-theme="light"] .open-roles-panel,
+html[data-theme="light"] .contact-direct,
+html[data-theme="light"] .article-aside {
+  background: #ffffff !important;
+  color: #101010 !important;
+  border: 1px solid #d6d6d1;
+  box-shadow: 0 18px 50px rgba(16,16,16,.08);
+}
+html[data-theme="light"] :is(.open-roles-panel,.contact-direct,.article-aside) :is(h1,h2,h3,h4,h5,h6,strong,a) {
+  color: #101010 !important;
+}
+html[data-theme="light"] :is(.open-roles-panel,.contact-direct,.article-aside) p {
+  color: #5f5f5a !important;
+}
+html[data-theme="light"] .contact-direct a i { color: #8c1b1c !important; }
+html[data-theme="light"] .article-aside .decima-btn:not(.is-outline-light) {
+  color: #ffffff !important;
+}
+html[data-theme="light"] .article-aside .decima-btn.is-outline-light {
+  color: #101010 !important;
+  border-color: #101010 !important;
+}
+html[data-theme="light"] .article-aside .decima-btn.is-outline-light:hover {
+  color: #ffffff !important;
+  background: #101010 !important;
+}
+
+/* Light theme: footer */
+html[data-theme="light"] .footer-section.decima-footer {
+  background: #f1f1ee !important;
+  color: #101010 !important;
+  border-top: 1px solid #d6d6d1;
+}
+html[data-theme="light"] .footer-section.decima-footer :is(h1,h2,h3,h4,h5,h6,strong) {
+  color: #101010 !important;
+}
+html[data-theme="light"] .footer-section.decima-footer :is(p,li,a,span) {
+  color: #454543 !important;
+}
+html[data-theme="light"] .footer-section.decima-footer a:hover { color: #8c1b1c !important; }
+html[data-theme="light"] .footer-section.decima-footer .footer-brand img {
+  content: url('../images/shared/branding/logo-burgundy.png');
+}
+html[data-theme="light"] .footer-linkedin {
+  color: #8c1b1c !important;
+  border-color: #8c1b1c !important;
+}
+html[data-theme="light"] .footer-linkedin:hover {
+  color: #ffffff !important;
+  background: #8c1b1c !important;
+}
+html[data-theme="light"] .footer-bottom { border-top-color: #d6d6d1 !important; }
+
+/* Keep image-led heroes and overlays legible in both themes. */
+html[data-theme="light"] :is(.hero-slides,.slider-area.one,.breadcumb-area.decima-breadcrumb,.project-detail-hero,.careers-hero) :is(h1,h2,h3,h4,h5,h6,p,li,a,span),
+html[data-theme="light"] .decima-home-projects .project-content :is(h1,h2,h3,h4,h5,h6,p,a,span),
+html[data-theme="light"] .decima-service-card :is(h1,h2,h3,h4,h5,h6,p,li,a,span) {
+  color: #ffffff !important;
+}
+html[data-theme="light"] .hero-slides .hero-accent { color: #8c1b1c !important; }
+
+html[data-theme="light"] .theme-toggle {
+  background: #ffffff;
+  color: #101010;
+  border-color: #8c1b1c;
+  box-shadow: 0 12px 35px rgba(16,16,16,.16);
+}
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .theme-toggle:focus-visible {
+  background: #8c1b1c;
+  color: #ffffff;
+}
+
+/* Smooth only user-triggered changes, not the first page paint. */
+html.theme-ready body,
+html.theme-ready .hendre_nav_manu,
+html.theme-ready .xs-sidebar-widget,
+html.theme-ready .decima-section,
+html.theme-ready .footer-section,
+html.theme-ready .open-roles-panel,
+html.theme-ready .contact-direct,
+html.theme-ready .article-aside,
+html.theme-ready .detail-hero-grid,
+html.theme-ready .theme-toggle {
+  transition: background-color .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+
+@media (max-width: 767px) {
+  .theme-toggle {
+    left: 16px;
+    bottom: 16px;
+    min-height: 44px;
+    padding: 9px 12px;
+  }
+  .theme-toggle-text { display: none; }
+}
+
+/* Final contrast safeguards for context-specific controls. */
+html:not([data-theme="light"]) .header-button a:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] .header-button a:hover {
+  background: #101010 !important;
+  border-color: #101010 !important;
+  color: #ffffff !important;
+}
+html:not([data-theme="light"]) :is(.detail-hero-copy,.open-roles-panel,.article-aside,.contact-direct,.decima-section.is-dark) .decima-btn:hover,
+html:not([data-theme="light"]) .careers-hero .decima-btn.is-light:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] :is(.detail-hero-copy,.open-roles-panel) .decima-btn.is-light {
+  background: #8c1b1c !important;
+  border-color: #8c1b1c !important;
+  color: #ffffff !important;
+}
+html[data-theme="light"] :is(.detail-hero-copy,.open-roles-panel) .decima-btn.is-light:hover {
+  background: #101010 !important;
+  border-color: #101010 !important;
+  color: #ffffff !important;
+}
+.location-map-section .map-filter button:hover,
+.location-map-section .map-filter button.is-active {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #101010 !important;
+}
+.location-map-section .map-pin,
+.location-map-section .map-pin:hover,
+.location-map-section .map-pin:focus-visible,
+.location-map-section .map-pin.is-active {
+  background: #ffffff !important;
+  border-color: #8c1b1c !important;
+}
+
+
+/* Theme support for map-driven project filters */
+html[data-theme="light"] .project-filter-label,
+html[data-theme="light"] .project-results-count { color: #101010 !important; }
+html[data-theme="light"] .project-results-hint { color: #5f5f5a !important; }
+html[data-theme="light"] .project-results-toolbar { border-bottom-color: #d6d6d1 !important; }
+html[data-theme="light"] .project-empty-state {
+  background: #ffffff !important;
+  border-color: #d6d6d1 !important;
+}
+html[data-theme="light"] .project-empty-state h3 { color: #101010 !important; }
+html[data-theme="light"] .project-empty-state p { color: #5f5f5a !important; }
+.projects-map-section .project-map-status { color: #ffffff !important; }
+
+/* ========================================================================
+   Complete light-theme coverage + original map restoration (August 2026)
+   These rules are intentionally last because the source template contains
+   several section-specific !important declarations.
+   ======================================================================== */
+
+/* Restore the original map artwork, burgundy depth, pins, and hover treatment. */
+.location-map-section,
+html[data-theme="light"] .location-map-section {
+  background: radial-gradient(circle at 20% 20%, #7d2225 0%, #460d0f 36%, #180607 100%) !important;
+  color: #ffffff !important;
+}
+.location-map-section .map-base { opacity: .93 !important; }
+.location-map-section .map-pin,
+html[data-theme="light"] .location-map-section .map-pin {
+  background: #e14a4d !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.12) !important;
+}
+.location-map-section .map-pin:hover,
+.location-map-section .map-pin:focus-visible,
+.location-map-section .map-pin.is-active,
+html[data-theme="light"] .location-map-section .map-pin:hover,
+html[data-theme="light"] .location-map-section .map-pin:focus-visible,
+html[data-theme="light"] .location-map-section .map-pin.is-active {
+  background: #ffffff !important;
+  border-color: #7d2225 !important;
+}
+.location-map-section .map-filter button,
+html[data-theme="light"] .location-map-section .map-filter button {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.30) !important;
+  background: transparent !important;
+}
+.location-map-section .map-filter button:hover,
+.location-map-section .map-filter button.is-active,
+html[data-theme="light"] .location-map-section .map-filter button:hover,
+html[data-theme="light"] .location-map-section .map-filter button.is-active {
+  color: #ffffff !important;
+  background: #7d2225 !important;
+  border-color: #ffffff !important;
+}
+.location-map-section .project-map-status,
+html[data-theme="light"] .location-map-section .project-map-status {
+  color: #ffffff !important;
+}
+
+/* Keep the floating switch fully inside the viewport. */
+.theme-toggle {
+  left: max(16px, env(safe-area-inset-left)) !important;
+  right: auto !important;
+  transform: none !important;
+  max-width: calc(100vw - 32px);
+}
+
+/* Base light surfaces. */
+html[data-theme="light"] body,
+html[data-theme="light"] main {
+  background: #f7f7f5 !important;
+  color: #101010 !important;
+}
+
+/* ------------------------------------------------------------------------
+   Home hero: true light version while retaining the split-image composition.
+   ------------------------------------------------------------------------ */
+html[data-theme="light"] .home-page .hero-slides,
+html[data-theme="light"] .home-page .slider-area.one {
+  background: #f7f7f5 !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .row.bor-der {
+  border-left-color: rgba(16,16,16,.10) !important;
+  border-right-color: rgba(16,16,16,.10) !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .row.bor-der::before {
+  background: rgba(16,16,16,.10) !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-title h4 {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-title h1,
+html[data-theme="light"] .home-page .slider-area.one .slider-title h2,
+html[data-theme="light"] .home-page .slider-area.one .hero-line,
+html[data-theme="light"] .home-page .slider-area.one .hero-line.is-white {
+  color: #101010 !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .hero-accent,
+html[data-theme="light"] .home-page .slider-area.one .hero-line.is-accent {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-number > span {
+  color: rgba(16,16,16,.10) !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-button a {
+  color: #101010 !important;
+  border-bottom-color: #101010 !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-button a:hover {
+  color: #8c1b1c !important;
+  border-bottom-color: #8c1b1c !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-thumb::before {
+  background: linear-gradient(90deg, #f7f7f5 0%, rgba(247,247,245,.78) 10%, rgba(247,247,245,.12) 42%, rgba(247,247,245,.02) 100%) !important;
+}
+html[data-theme="light"] .home-page .hero-proof {
+  background: rgba(255,255,255,.90) !important;
+  color: #101010 !important;
+  border-left-color: #8c1b1c !important;
+  box-shadow: 0 14px 35px rgba(16,16,16,.12);
+}
+html[data-theme="light"] .home-page .slider-icon-list h5,
+html[data-theme="light"] .home-page .slider-icon-list ul li a {
+  color: #101010 !important;
+}
+html[data-theme="light"] .home-page .slider-icon-list ul li a:hover {
+  color: #8c1b1c !important;
+}
+
+/* ------------------------------------------------------------------------
+   Home About: fixes the white-on-light text shown in the supplied screenshot.
+   ------------------------------------------------------------------------ */
+html[data-theme="light"] .decima-home-about {
+  background: #f1f1ee !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-home-about::before {
+  opacity: .05 !important;
+}
+html[data-theme="light"] .decima-home-about .section-title .main-title h1 {
+  color: rgba(16,16,16,.075) !important;
+}
+html[data-theme="light"] .decima-home-about .section-title .sub-title h2,
+html[data-theme="light"] .decima-home-about .tab-title h3 {
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-home-about .section-title .sub-title h2 span {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-home-about .appoinment-tab .tabs li a {
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-home-about .appoinment-tab .tabs li.boder a,
+html[data-theme="light"] .decima-home-about .appoinment-tab .tabs li a:hover {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-home-about .appoinment-tab .tabs li.boder a::before,
+html[data-theme="light"] .decima-home-about .appoinment-tab .tabs li a::after {
+  background: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-home-about .post-comment-description p,
+html[data-theme="light"] .decima-home-about .tab-title p {
+  color: #5f5f5a !important;
+}
+html[data-theme="light"] .decima-home-about .decima-values-list li {
+  color: #101010 !important;
+}
+
+/* ------------------------------------------------------------------------
+   Home Services: light surface with dark copy and burgundy accents.
+   ------------------------------------------------------------------------ */
+html[data-theme="light"] .decima-template-services {
+  background: #ffffff !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-template-services::before {
+  background-image: none !important;
+}
+html[data-theme="light"] .decima-template-services .section-title .main-title h1 {
+  color: rgba(16,16,16,.075) !important;
+}
+html[data-theme="light"] .decima-template-services .section-title .sub-title h2,
+html[data-theme="light"] .decima-template-services .service-title h3,
+html[data-theme="light"] .decima-template-services .icon-list li,
+html[data-theme="light"] .decima-template-services .service-button a {
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-template-services .section-title .sub-title h2 span,
+html[data-theme="light"] .decima-template-services .service-title h3 span,
+html[data-theme="light"] .decima-template-services .icon-list li i {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-template-services .service-description p {
+  color: #5f5f5a !important;
+}
+html[data-theme="light"] .decima-template-services .single-service-box {
+  border-top-color: #d6d6d1 !important;
+  border-bottom-color: #d6d6d1 !important;
+}
+html[data-theme="light"] .decima-template-services .service-button::before {
+  border-color: #101010 !important;
+}
+html[data-theme="light"] .decima-template-services .service-button a::before,
+html[data-theme="light"] .decima-template-services .service-button a::after {
+  background: #101010 !important;
+}
+html[data-theme="light"] .decima-template-services .single-service-box:hover .service-button a,
+html[data-theme="light"] .decima-template-services .single-service-box:hover .service-title h3 span {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-template-services .single-service-box:hover .service-button::before {
+  border-color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-template-services .single-service-box:hover .service-button a::before,
+html[data-theme="light"] .decima-template-services .single-service-box:hover .service-button a::after {
+  background: #8c1b1c !important;
+}
+
+/* ------------------------------------------------------------------------
+   Home Latest Work: light section; image hover panels remain dark for contrast.
+   ------------------------------------------------------------------------ */
+html[data-theme="light"] .decima-template-projects {
+  background: #f1f1ee !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-template-projects .section-title .main-title h1 {
+  color: rgba(16,16,16,.075) !important;
+}
+html[data-theme="light"] .decima-template-projects .section-title .sub-title h2 {
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-template-projects .section-title .sub-title h2 span {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-template-projects .projects-btn a {
+  color: #101010 !important;
+  border-color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-template-projects .projects-btn a:hover {
+  background: #101010 !important;
+  border-color: #101010 !important;
+  color: #ffffff !important;
+}
+/* These panels sit on photographs and must remain high contrast. */
+html[data-theme="light"] .decima-template-projects .project-content,
+html[data-theme="light"] .decima-template-projects .single-project-box.upper .project-content,
+html[data-theme="light"] .decima-template-projects .project-content.style-one {
+  background: #161616 !important;
+}
+html[data-theme="light"] .decima-template-projects .project-content h3 {
+  color: #ffffff !important;
+}
+
+/* ------------------------------------------------------------------------
+   Home Insights and the Insights archive.
+   ------------------------------------------------------------------------ */
+html[data-theme="light"] .decima-home-blog,
+html[data-theme="light"] .decima-insights-archive {
+  background: #ffffff !important;
+  color: #101010 !important;
+}
+html[data-theme="light"] .decima-home-blog::before,
+html[data-theme="light"] .decima-insights-archive::before {
+  background-image: none !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .section-title .main-title h1 {
+  color: rgba(16,16,16,.075) !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .section-title .sub-title h2 {
+  color: #101010 !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .section-title .sub-title h2 span {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-title h3 a {
+  color: #101010 !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-title h3 a:hover {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-title h4,
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-title h4 span {
+  color: #5f5f5a !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-button a {
+  color: #101010 !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-button::before {
+  border-color: #101010 !important;
+}
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-button a::before,
+html[data-theme="light"] :is(.decima-home-blog,.decima-insights-archive) .blog-button a::after {
+  background: #101010 !important;
+}
+html[data-theme="light"] .decima-home-blog .projects-btn a {
+  color: #101010 !important;
+  border-color: #8c1b1c !important;
+}
+html[data-theme="light"] .decima-home-blog .projects-btn a:hover {
+  color: #ffffff !important;
+  background: #101010 !important;
+  border-color: #101010 !important;
+}
+
+/* Contact-page panel that was not part of the first theme pass. */
+html[data-theme="light"] .contact-connect-panel {
+  background: #ffffff !important;
+  color: #101010 !important;
+  border: 1px solid #d6d6d1;
+  box-shadow: 0 18px 50px rgba(16,16,16,.08);
+}
+html[data-theme="light"] .contact-connect-panel .section-kicker {
+  color: #8c1b1c !important;
+}
+html[data-theme="light"] .contact-connect-panel h3,
+html[data-theme="light"] .contact-connect-panel .connect-option a {
+  color: #101010 !important;
+}
+html[data-theme="light"] .contact-connect-panel .connect-option span {
+  color: #5f5f5a !important;
+}
+html[data-theme="light"] .contact-connect-panel .connect-option {
+  border-top-color: #d6d6d1 !important;
+}
+html[data-theme="light"] .contact-connect-panel .connect-option:last-child {
+  border-bottom-color: #d6d6d1 !important;
+}
+html[data-theme="light"] .contact-connect-panel .connect-option a:hover {
+  color: #8c1b1c !important;
+}
+
+/* Ensure headings and body copy on all ordinary light surfaces are readable. */
+html[data-theme="light"] :is(.decima-section.is-white,.decima-section.is-offwhite) :is(h1,h2,h3,h4,h5,h6,strong) {
+  color: #101010;
+}
+html[data-theme="light"] :is(.decima-section.is-white,.decima-section.is-offwhite) :is(p,li) {
+  color: #5f5f5a;
+}
+html[data-theme="light"] :is(.decima-section.is-white,.decima-section.is-offwhite) :is(.section-kicker,.decima-heading span,.leader-role,.insight-meta,.office-label) {
+  color: #8c1b1c !important;
+}
+
+/* Preserve intentionally image-led components and brand bands. */
+html[data-theme="light"] :is(.breadcumb-area.decima-breadcrumb,.project-detail-hero,.careers-hero,.decima-service-card,.cta-band,.proof-grid,.counter-area.one.decima-counters) :is(h1,h2,h3,h4,h5,h6,p,li,a,span,strong) {
+  color: #ffffff !important;
+}
+html[data-theme="light"] :is(.breadcumb-area.decima-breadcrumb,.project-detail-hero,.careers-hero) .section-kicker,
+html[data-theme="light"] :is(.breadcumb-area.decima-breadcrumb,.project-detail-hero,.careers-hero) .hero-accent {
+  color: #8c1b1c !important;
+}
+
+/* Mobile hero uses the image as a full background, so add a white veil. */
+@media (max-width: 991px) {
+  html[data-theme="light"] .home-page .slider-area.one .slider-thumb::before {
+    background: linear-gradient(90deg, rgba(247,247,245,.96), rgba(247,247,245,.86) 68%, rgba(247,247,245,.68)) !important;
+  }
+  html[data-theme="light"] .home-page .slider-area.one .slider-icon-list h5,
+  html[data-theme="light"] .home-page .slider-area.one .slider-icon-list ul li a {
+    color: #101010 !important;
+  }
+}
+
+/* Final light-hero panel correction: the original slide content card has its own dark fill. */
+html[data-theme="light"] .home-page .slider-area.one .single-slider {
+  background: #ffffff !important;
+  box-shadow: 0 18px 55px rgba(16,16,16,.07);
+}
+html[data-theme="light"] .home-page .slider-area.one .single-slider::before,
+html[data-theme="light"] .home-page .slider-area.one .single-slider::after,
+html[data-theme="light"] .home-page .slider-area.one .single-slider-left::before,
+html[data-theme="light"] .home-page .slider-area.one .single-slider-left::after {
+  background: rgba(16,16,16,.16) !important;
+  opacity: 1 !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-title h1::before {
+  background: rgba(16,16,16,.18) !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-button::before {
+  border-color: #101010 !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-button a::before,
+html[data-theme="light"] .home-page .slider-area.one .slider-button a::after {
+  background: #101010 !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-button:hover::before {
+  border-color: #8c1b1c !important;
+}
+html[data-theme="light"] .home-page .slider-area.one .slider-button a:hover::before,
+html[data-theme="light"] .home-page .slider-area.one .slider-button a:hover::after {
+  background: #8c1b1c !important;
+}
+
+/* Final button contrast: white CTA buttons must keep dark text on white. */
+html[data-theme="light"] :is(.cta-band,.careers-hero,.project-detail-hero,.proof-grid,.counter-area.one.decima-counters) .decima-btn.is-light,
+html[data-theme="light"] :is(.cta-band,.careers-hero,.project-detail-hero,.proof-grid,.counter-area.one.decima-counters) .decima-btn.is-light :is(i,span) {
+  color: #101010 !important;
+}
+html[data-theme="light"] :is(.cta-band,.careers-hero,.project-detail-hero,.proof-grid,.counter-area.one.decima-counters) .decima-btn.is-light:hover,
+html[data-theme="light"] :is(.cta-band,.careers-hero,.project-detail-hero,.proof-grid,.counter-area.one.decima-counters) .decima-btn.is-light:hover :is(i,span) {
+  background: #101010 !important;
+  border-color: #101010 !important;
+  color: #ffffff !important;
+}
+
+/* Small labels on dark photo overlays use neutral white for readable contrast. */
+html[data-theme="light"] .decima-template-projects .project-content h4 {
+  color: #ffffff !important;
+}

@@ -152,14 +152,14 @@ ul {
 
 input:focus,
 button:focus {
-    border-color: #8b1b1d;
-    outline-color: #8b1b1d;
-    border: 1px solid #8b1b1d;
+    border-color: #8c1b1c;
+    outline-color: #8c1b1c;
+    border: 1px solid #8c1b1c;
 }
 
 textarea:focus {
-    border-color: #8b1b1d;
-    outline-color: #8b1b1d;
+    border-color: #8c1b1c;
+    outline-color: #8c1b1c;
 }
 
 hr {
@@ -170,7 +170,7 @@ hr {
 }
 
 hr.style-2 {
-    border-bottom: 1px dashed #8b1b1d;
+    border-bottom: 1px dashed #8c1b1c;
 }
 
 hr.mp-0 {
