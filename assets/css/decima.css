@@ -2827,3 +2827,102 @@ body .project-area.one.decima-template-projects .single-project-box.upper .proje
   .project-results-toolbar { display: block; }
   .project-results-hint { margin-top: 7px; text-align: left; }
 }
+
+
+/* ========================================================================== 
+   Team portrait + services card refinements - August 9, 2026
+   Requested updates:
+   - Keep leadership portraits in identical, stable frames everywhere.
+   - Prevent portrait images from stretching or sinking inside their columns.
+   - Use a consistent neutral photo-frame background.
+   - Make Services overview cards square and keep service imagery in full color.
+   ========================================================================== */
+
+/* Leadership portraits: one consistent frame system across Home + Team pages. */
+.leader-photo,
+.team-profile-photo {
+  background: #e8e8e6;
+  overflow: hidden;
+}
+
+.leader-photo {
+  height: auto !important;
+  aspect-ratio: 4 / 5;
+}
+
+.leader-photo img,
+.team-profile-photo img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* Keep Team-page portraits aligned to the top of each profile and identical in size. */
+.team-profile-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 700px;
+  box-shadow: var(--decima-shadow);
+}
+
+.team-profile-photo img {
+  box-shadow: none !important;
+}
+
+/* Remove image-treatment variation so the same source portrait renders consistently. */
+.leader-photo img,
+.leader-card:hover .leader-photo img {
+  filter: none !important;
+}
+
+/* Services overview: square cards with full-color photography. */
+.services-page .decima-service-card {
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+}
+
+.services-page .decima-service-card img,
+.services-page .decima-service-card:hover img,
+.services-page .decima-service-card:focus-within img {
+  filter: none !important;
+}
+
+/* Square cards remain square on touch/tablet layouts; content can scroll inside overlay. */
+@media (hover: none), (max-width: 991px) {
+  .services-page .decima-service-card {
+    min-height: 0 !important;
+    aspect-ratio: 1 / 1;
+  }
+
+  .services-page .service-card-content {
+    max-height: calc(100% - 18px);
+  }
+}
+
+@media (max-width: 767px) {
+  .leader-photo,
+  .team-profile-photo {
+    aspect-ratio: 4 / 5;
+  }
+
+  .leader-photo img,
+  .team-profile-photo img {
+    height: 100% !important;
+    object-position: center center !important;
+  }
+}
+
+
+/* Services overview: the entire card is a direct link to its service detail page. */
+.services-page .decima-service-card.is-clickable {
+  cursor: pointer !important;
+}
+
+.services-page .decima-service-card.is-clickable:focus-visible {
+  outline: 3px solid var(--decima-burgundy);
+  outline-offset: 4px;
+}

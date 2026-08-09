@@ -278,6 +278,26 @@
     });
   }
 
+  function initClickableServiceCards() {
+    document.querySelectorAll('.services-page .decima-service-card').forEach((card) => {
+      const link = card.querySelector('.service-card-content .text-link[href]');
+      if (!link) return;
+
+      card.classList.add('is-clickable');
+
+      const openService = () => {
+        window.location.href = link.href;
+      };
+
+      card.addEventListener('click', (event) => {
+        /* Keep the existing text link behaving normally; everything else opens the card. */
+        if (event.target.closest('a, button, input, select, textarea')) return;
+        openService();
+      });
+
+    });
+  }
+
   function initCurrentYear() {
     document.querySelectorAll('[data-current-year]').forEach((item) => {
       item.textContent = String(new Date().getFullYear());
@@ -294,6 +314,7 @@
     initProjectFilters();
     initContactForm();
     initSidebarAccessibility();
+    initClickableServiceCards();
     initCurrentYear();
     initReducedMotion();
   });
