@@ -737,14 +737,14 @@
 
 
 
-    //curseer animation
-
-        var curser = document.querySelector(".curser");
-        var curser2 = document.querySelector(".curser2");
-    
-        document.addEventListener("mousemove", function(e){
-            curser.style.cssText = curser2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
-        });
+    // Custom cursor: one responsive square that follows the pointer immediately.
+    var curser = document.querySelector(".curser");
+    if (curser && window.matchMedia && window.matchMedia("(pointer: fine)").matches) {
+        document.addEventListener("pointermove", function(e){
+            curser.style.left = e.clientX + "px";
+            curser.style.top = e.clientY + "px";
+        }, { passive: true });
+    }
     
 
 

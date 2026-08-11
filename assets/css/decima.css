@@ -2090,10 +2090,10 @@ body .project-card-image { position: relative; }
 
 /* === July 30, 2026 review corrections === */
 
-/* Contact lead form: structured like a contemporary two-column corporate enquiry form. */
-.contact-enquiry-section { overflow: hidden; }
-.contact-enquiry-header { max-width: 1040px; margin-bottom: 58px; }
-.contact-enquiry-header h2 {
+/* Contact lead form: structured like a contemporary two-column corporate inquiry form. */
+.contact-inquiry-section { overflow: hidden; }
+.contact-inquiry-header { max-width: 1040px; margin-bottom: 58px; }
+.contact-inquiry-header h2 {
   max-width: 980px;
   margin: 12px 0 18px;
   color: var(--decima-black);
@@ -2102,8 +2102,8 @@ body .project-card-image { position: relative; }
   letter-spacing: -.04em;
   font-weight: 600;
 }
-.contact-enquiry-header p { max-width: 760px; margin: 0; color: #676762; font-size: 16px; line-height: 1.8; }
-.contact-enquiry-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(300px, .75fr); gap: clamp(48px, 7vw, 108px); align-items: start; }
+.contact-inquiry-header p { max-width: 760px; margin: 0; color: #676762; font-size: 16px; line-height: 1.8; }
+.contact-inquiry-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(300px, .75fr); gap: clamp(48px, 7vw, 108px); align-items: start; }
 .contact-lead-form { gap: 25px 28px; }
 .contact-lead-form .form-field { gap: 10px; }
 .contact-lead-form .form-field label:not(.consent-label) { color: #333330; font-size: 11px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
@@ -2319,14 +2319,14 @@ body :is(.slider-button, .feature-button, .about-button, .service-button, .inner
 }
 
 @media (max-width: 991px) {
-  .contact-enquiry-grid { grid-template-columns: 1fr; }
+  .contact-inquiry-grid { grid-template-columns: 1fr; }
   .contact-connect-panel { position: static; }
   .insight-detail-page .breadcumb-area.decima-breadcrumb { min-height: 560px; padding: 92px 0 68px; }
 }
 
 @media (max-width: 767px) {
-  .contact-enquiry-header { margin-bottom: 42px; }
-  .contact-enquiry-header h2 { font-size: clamp(34px, 10vw, 48px); }
+  .contact-inquiry-header { margin-bottom: 42px; }
+  .contact-inquiry-header h2 { font-size: clamp(34px, 10vw, 48px); }
   .contact-lead-form { grid-template-columns: 1fr; gap: 21px; }
   .contact-lead-form .form-field.is-wide { grid-column: auto; }
   .form-submit-row { align-items: flex-start; flex-direction: column; }
@@ -2925,4 +2925,142 @@ body .project-area.one.decima-template-projects .single-project-box.upper .proje
 .services-page .decima-service-card.is-clickable:focus-visible {
   outline: 3px solid var(--decima-burgundy);
   outline-offset: 4px;
+}
+
+
+/* ========================================================================== 
+   August 11, 2026 responsive + interaction update
+   - One immediate-follow custom cursor square on precision-pointer devices.
+   - Touch/tablet devices use the native cursor only.
+   - Mobile/tablet layout hardening across all templates.
+   ========================================================================== */
+
+/* Single custom square cursor: no trailing square and no transition delay. */
+.curser {
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid var(--decima-burgundy) !important;
+  border-radius: 2px !important;
+  background: rgba(140, 27, 28, .16) !important;
+  transform: translate(-50%, -50%) !important;
+  transition: none !important;
+  animation: none !important;
+  will-change: left, top;
+  pointer-events: none !important;
+}
+.curser2 { display: none !important; }
+
+/* Basic responsive safety for every page. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { min-width: 0; overflow-x: hidden; }
+img, video, iframe, svg { max-width: 100%; }
+iframe, video { height: auto; }
+:is(.row, [class*="grid"], .content-split, .detail-hero-grid, .team-profile, .article-shell, .contact-layout, .cta-inner) > * { min-width: 0; }
+:is(h1, h2, h3, h4, p, a, span, li) { overflow-wrap: break-word; }
+button, a, input, select, textarea { touch-action: manipulation; }
+
+/* Tablet: preserve two-column rhythm without overly narrow cards. */
+@media (max-width: 991px) {
+  .curser, .curser2 { display: none !important; }
+
+  .capability-grid,
+  .approach-steps,
+  .proof-grid,
+  .sector-grid,
+  .strategy-grid,
+  .office-grid,
+  .project-grid,
+  .project-grid.is-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .project-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .project-results-toolbar {
+    margin-top: 0;
+  }
+
+  .contact-lead-form .form-field input,
+  .contact-lead-form .form-field select,
+  .contact-lead-form .form-field textarea {
+    font-size: 16px;
+  }
+
+  .footer-column a,
+  .connect-option a,
+  .office-card a { overflow-wrap: anywhere; }
+}
+
+/* Phones: single-column content, comfortable controls, no horizontal overflow. */
+@media (max-width: 767px) {
+  .service-grid,
+  .leader-grid,
+  .insight-grid,
+  .career-benefit-grid,
+  .value-grid,
+  .sector-grid,
+  .proof-grid,
+  .approach-steps,
+  .strategy-grid,
+  .capability-grid,
+  .office-grid,
+  .project-grid,
+  .project-grid.is-two {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cta-inner {
+    grid-template-columns: 1fr !important;
+    gap: 26px;
+    padding: 58px 0;
+  }
+  .cta-inner .decima-btn { width: 100%; max-width: 320px; }
+
+  .project-filter {
+    flex-wrap: wrap;
+    overflow: visible;
+    gap: 9px;
+    padding-bottom: 0;
+  }
+  .project-filter-label { flex: 0 0 100%; }
+  .project-filter button { flex: 0 0 auto; min-height: 44px; }
+
+  .project-results-toolbar { margin: 8px 0 24px; }
+  .project-results-count,
+  .project-results-hint { max-width: 100%; }
+
+  .project-card-image,
+  .latest-work-page .project-card-image { min-height: 260px !important; height: 260px !important; }
+  .project-card-title { font-size: 15px; }
+
+  .team-profile { gap: 28px; padding: 44px 0; }
+  .team-profile-photo { max-height: none; }
+
+  .contact-connect-panel,
+  .office-card,
+  .capability-card,
+  .career-benefit,
+  .value-card { width: 100%; }
+
+  .contact-lead-form .form-field input,
+  .contact-lead-form .form-field select,
+  .contact-lead-form .form-field textarea {
+    width: 100%;
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  .form-submit-row .decima-btn { width: 100%; max-width: 100%; }
+
+  .footer-brand img { max-width: min(220px, 75vw); }
+  .footer-bottom { gap: 12px; }
+}
+
+/* Coarse-pointer devices (including large tablets) should never show the custom cursor. */
+@media (hover: none), (pointer: coarse) {
+  .curser, .curser2 { display: none !important; }
 }

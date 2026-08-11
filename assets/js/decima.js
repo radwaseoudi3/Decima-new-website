@@ -82,7 +82,11 @@
     const typeLabel = activeCategory === 'All' ? 'all project types' : activeCategory;
     const profileWord = visibleCount === 1 ? 'profile' : 'profiles';
 
-    if (count) count.textContent = 'Showing ' + visibleCount + ' project ' + profileWord + ' for ' + regionLabel + ' · ' + typeLabel;
+    if (count) {
+      count.textContent = map
+        ? 'Showing ' + visibleCount + ' project ' + profileWord + ' for ' + regionLabel + ' · ' + typeLabel
+        : 'Showing ' + visibleCount + ' project ' + profileWord + (activeCategory === 'All' ? '' : ' · ' + activeCategory);
+    }
     if (mapStatus) mapStatus.textContent = 'Showing ' + visibleCount + ' project ' + profileWord + ' associated with ' + regionLabel + '.';
     if (emptyState) emptyState.hidden = visibleCount !== 0;
   }
@@ -229,10 +233,10 @@
       const firstName = String(data.get('first_name') || '').trim();
       const lastName = String(data.get('last_name') || '').trim();
       const fullName = [firstName, lastName].filter(Boolean).join(' ') || 'a prospective client';
-      const enquiryType = data.get('enquiry_type') || 'Website enquiry';
-      const subject = enquiryType + ' from ' + fullName;
+      const inquiryType = data.get('inquiry_type') || 'Website Inquiry';
+      const subject = inquiryType + ' from ' + fullName;
       const body = [
-        'Enquiry type: ' + enquiryType,
+        'Inquiry type: ' + inquiryType,
         'First name: ' + firstName,
         'Last name: ' + lastName,
         'Email: ' + (data.get('email') || ''),

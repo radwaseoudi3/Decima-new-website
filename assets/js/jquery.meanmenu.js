@@ -35,7 +35,7 @@
 						meanMenuOpen: "<span /><span /><span />", // text/markup you want when menu is closed
 						meanRevealPosition: "right", // left right or center positions
 						meanRevealPositionDistance: "0", // Tweak the position of the menu
-						meanRevealColour: "", // override CSS colours for the reveal background
+						meanRevealColour: "", // override CSS colors for the reveal background
 						meanScreenWidth: "767", // set the screen width you want meanmenu to kick in at
 						meanNavPush: "", // set a height here in px, em or % if you want to budge your layout now the navigation is missing.
 						meanShowChildren: true, // true to show children in the menu, false to hide them
