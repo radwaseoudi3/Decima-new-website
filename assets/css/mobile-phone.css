@@ -1,0 +1,823 @@
+/* ==========================================================================\n   Decima International - phone-only responsive refinements\n   August 12, 2026\n   Scope: phones only. Desktop and tablet layouts are intentionally unchanged.\n   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* -----------------------------------------------------------------------
+     Mobile navigation: one consistent burgundy surface in light/dark themes.
+     ----------------------------------------------------------------------- */
+  body .mobile-menu-area,
+  body .mean-container .mean-bar,
+  body .mean-container .mean-nav,
+  html[data-theme="light"] body .mobile-menu-area,
+  html[data-theme="light"] body .mean-container .mean-bar,
+  html[data-theme="light"] body .mean-container .mean-nav {
+    background: var(--decima-burgundy) !important;
+    background-color: var(--decima-burgundy) !important;
+  }
+
+  body .mobile-menu-area {
+    min-height: 76px !important;
+    padding: 0 !important;
+  }
+
+  /* MeanMenu already renders the brand in the bar; hide the duplicate absolute logo. */
+  body .mobile-menu-area > .mobile-brand { display: none !important; }
+
+  body .mean-container .mean-bar {
+    min-height: 76px !important;
+    padding: 0 !important;
+  }
+
+  body .mean-container .mean-bar::before,
+  html[data-theme="light"] body .mean-container .mean-bar::before {
+    left: 18px !important;
+    top: 13px !important;
+    width: 165px !important;
+    height: 50px !important;
+    background-image: url('../images/shared/branding/logo-white.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: contain !important;
+  }
+
+  body .mean-container a.meanmenu-reveal,
+  html[data-theme="light"] body .mean-container a.meanmenu-reveal {
+    top: 10px !important;
+    right: 10px !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,.55) !important;
+  }
+
+  body .mean-container a.meanmenu-reveal span,
+  html[data-theme="light"] body .mean-container a.meanmenu-reveal span {
+    background: #fff !important;
+  }
+
+  body .mean-container .mean-nav {
+    max-height: calc(100dvh - 76px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body .mean-container .mean-nav ul,
+  body .mean-container .mean-nav ul li,
+  body .mean-container .mean-nav ul li li,
+  html[data-theme="light"] body .mean-container .mean-nav ul,
+  html[data-theme="light"] body .mean-container .mean-nav ul li,
+  html[data-theme="light"] body .mean-container .mean-nav ul li li {
+    background: var(--decima-burgundy) !important;
+    background-color: var(--decima-burgundy) !important;
+  }
+
+  body .mean-container .mean-nav ul li a,
+  body .mean-container .mean-nav ul li li a,
+  body .mean-container .mean-nav ul li a.mean-expand,
+  html[data-theme="light"] body .mean-container .mean-nav ul li a,
+  html[data-theme="light"] body .mean-container .mean-nav ul li li a,
+  html[data-theme="light"] body .mean-container .mean-nav ul li a.mean-expand {
+    color: #fff !important;
+    background: var(--decima-burgundy) !important;
+    background-color: var(--decima-burgundy) !important;
+    border-top-color: rgba(255,255,255,.22) !important;
+    border-left-color: rgba(255,255,255,.22) !important;
+  }
+
+  body .mean-container .mean-nav ul li a:hover,
+  body .mean-container .mean-nav ul li a:focus-visible,
+  body .mean-container .mean-nav ul li a.mean-expand:hover,
+  html[data-theme="light"] body .mean-container .mean-nav ul li a:hover,
+  html[data-theme="light"] body .mean-container .mean-nav ul li a:focus-visible,
+  html[data-theme="light"] body .mean-container .mean-nav ul li a.mean-expand:hover {
+    color: #fff !important;
+    background: rgba(0,0,0,.12) !important;
+  }
+
+  /* -----------------------------------------------------------------------
+     Home hero: keep image and copy side-by-side; image is no longer a backdrop.
+     Owl Carousel keeps native touch/swipe gestures.
+     ----------------------------------------------------------------------- */
+  .home-page .hero-slides { touch-action: pan-y; }
+  .home-page .hero-slides .owl-stage-outer { overflow: hidden !important; }
+  .home-page .hero-slides [data-animation] {
+    animation-duration: .42s !important;
+    animation-delay: 0s !important;
+  }
+
+  .home-page .slider-area.one,
+  .home-page .slider-area.one .row.bor-der {
+    min-height: 520px !important;
+    height: 520px !important;
+  }
+
+  .home-page .slider-area.one {
+    display: block !important;
+    overflow: hidden !important;
+  }
+
+  .home-page .slider-area.one .container-fluid {
+    height: 100% !important;
+    padding: 0 !important;
+  }
+
+  .home-page .slider-area.one .row.bor-der {
+    display: grid !important;
+    grid-template-columns: minmax(0, 56%) minmax(0, 44%) !important;
+    align-items: stretch !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .home-page .slider-area.one .row.bor-der::before { display: none !important; }
+
+  .home-page .slider-area.one .row.bor-der > .col-lg-6:first-child,
+  .home-page .slider-area.one .row.bor-der > .col-lg-6:last-child {
+    position: relative !important;
+    inset: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 520px !important;
+    height: 520px !important;
+    padding: 0 !important;
+  }
+
+  .home-page .slider-area.one .row.bor-der > .col-lg-6:first-child {
+    z-index: 3 !important;
+    grid-column: 1 !important;
+    display: flex !important;
+    align-items: stretch !important;
+    background: #161616 !important;
+  }
+
+  .home-page .slider-area.one .row.bor-der > .col-lg-6:last-child {
+    z-index: 1 !important;
+    grid-column: 2 !important;
+    display: block !important;
+  }
+
+  .home-page .slider-area.one .single-slider-left {
+    left: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 34px 14px 30px 18px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .home-page .slider-area.one .single-slider {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  .home-page .slider-area.one .single-slider > .slider-content {
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .home-page .slider-area.one .single-slider::before,
+  .home-page .slider-area.one .single-slider::after,
+  .home-page .slider-area.one .single-slider-left::before,
+  .home-page .slider-area.one .single-slider-left::after,
+  .home-page .slider-area.one .slider-title h1::before,
+  .home-page .slider-area.one .slider-title h2::before {
+    display: none !important;
+  }
+
+  .home-page .slider-area.one .slider-title {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .home-page .slider-area.one .slider-title h4 {
+    max-width: 100% !important;
+    margin: 0 0 15px !important;
+    font-size: 8px !important;
+    line-height: 1.55 !important;
+    letter-spacing: .1em !important;
+  }
+
+  .home-page .slider-area.one .slider-title h1,
+  .home-page .slider-area.one .slider-title h2 {
+    max-width: 100% !important;
+    margin: 0 0 24px !important;
+    padding: 0 !important;
+    font-size: clamp(27px, 7.8vw, 33px) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -.035em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .home-page .slider-area.one .hero-line { display: block !important; }
+  .home-page .slider-area.one .slider-number,
+  .home-page .slider-area.one .slider-icon-box,
+  .home-page .slider-area.one .hero-proof { display: none !important; }
+
+  .home-page .slider-area.one .singles-sliders,
+  .home-page .slider-area.one .singles-sliders .slider-content,
+  .home-page .slider-area.one .slider-thumb {
+    display: block !important;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    min-height: 520px !important;
+    height: 520px !important;
+  }
+
+  .home-page .slider-area.one .slider-thumb::before {
+    background: linear-gradient(90deg, rgba(16,16,16,.20), rgba(16,16,16,0) 48%) !important;
+  }
+
+  .home-page .slider-area.one .slider-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 62% center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .home-page .slider-area.one:nth-child(2) .slider-thumb img {
+    object-position: 72% center !important;
+  }
+
+  .home-page .slider-area.one .singles-sliders,
+  .home-page .slider-area.one .singles-sliders .slider-content,
+  .home-page .slider-area.one .slider-thumb,
+  .home-page .slider-area.one [data-animation] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html[data-theme="light"] .home-page .slider-area.one .row.bor-der > .col-lg-6:first-child {
+    background: #f7f7f5 !important;
+  }
+
+  html[data-theme="light"] .home-page .slider-area.one .slider-thumb::before {
+    background: linear-gradient(90deg, rgba(247,247,245,.16), rgba(247,247,245,0) 44%) !important;
+  }
+
+  .home-page .slider-area.one .slider-button {
+    margin-top: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .home-page .slider-area.one .slider-button > a {
+    min-height: 32px !important;
+    padding-right: 70px !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    border-bottom: 0 !important;
+  }
+
+  .home-page .slider-area.one .slider-button::before {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .home-page .slider-area.one .slider-button > a::before {
+    right: 26px !important;
+    width: 34px !important;
+  }
+
+  .home-page .slider-area.one .slider-button > a::after { right: 9px !important; }
+
+  /* -----------------------------------------------------------------------
+     Home About: retain the desktop idea on phones - visual left, copy right.
+     The per-tab Mission/Vision/Values photos are intentionally removed.
+     ----------------------------------------------------------------------- */
+  .home-page .decima-home-about .container > .row:nth-of-type(2) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    gap: 16px !important;
+    align-items: start !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .home-page .decima-home-about .container > .row:nth-of-type(2) > .col-lg-6 {
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .home-page .decima-home-about .single-about-left {
+    position: relative !important;
+    margin: 0 !important;
+  }
+
+  .home-page .decima-home-about .about-thumb {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .home-page .decima-home-about .about-thumb::before { display: none !important; }
+
+  .home-page .decima-home-about .about-thumb img {
+    width: 100% !important;
+    height: 300px !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .home-page .decima-home-about .about-button {
+    position: absolute !important;
+    left: 7px !important;
+    right: 7px !important;
+    top: auto !important;
+    bottom: 7px !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .home-page .decima-home-about .about-button > a {
+    width: 100% !important;
+    min-height: 38px !important;
+    padding: 8px 34px 8px 11px !important;
+    justify-content: flex-start !important;
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    background: rgba(16,16,16,.94) !important;
+  }
+
+  .home-page .decima-home-about .about-button::before {
+    right: 7px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .home-page .decima-home-about .about-button > a::before {
+    right: 22px !important;
+    width: 12px !important;
+  }
+
+  .home-page .decima-home-about .about-button > a::after {
+    right: 7px !important;
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  .home-page .decima-home-about .single-about-right,
+  .home-page .decima-home-about .appoinment-tab,
+  .home-page .decima-home-about .tab {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .home-page .decima-home-about .tab { padding-left: 0 !important; }
+
+  .home-page .decima-home-about .tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+  }
+
+  .home-page .decima-home-about .tabs li,
+  .home-page .decima-home-about .tabs li.boder {
+    min-width: 0 !important;
+    line-height: 1 !important;
+    background: transparent !important;
+  }
+
+  .home-page .decima-home-about .tabs li a {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 9px 3px !important;
+    text-align: center !important;
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+    border-bottom: 1px solid rgba(255,255,255,.22) !important;
+  }
+
+  .home-page .decima-home-about .tabs li a::before,
+  .home-page .decima-home-about .tabs li a::after { display: none !important; }
+
+  .home-page .decima-home-about .tabs li.current a {
+    border-bottom-color: var(--decima-burgundy) !important;
+  }
+
+  html[data-theme="light"] .home-page .decima-home-about .tabs li a {
+    border-bottom-color: rgba(16,16,16,.18) !important;
+  }
+
+  html[data-theme="light"] .home-page .decima-home-about .tabs li.current a {
+    border-bottom-color: var(--decima-burgundy) !important;
+  }
+
+  .home-page .decima-home-about .tabs_item { padding: 15px 0 0 !important; }
+  .home-page .decima-home-about .tab-thumb { display: none !important; }
+
+  .home-page .decima-home-about .post-comment-description p,
+  .home-page .decima-home-about .tab-title p {
+    width: 100% !important;
+    margin: 0 0 13px !important;
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+
+  .home-page .decima-home-about .tab-title h3 {
+    margin: 0 0 8px !important;
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+  }
+
+  .home-page .decima-home-about .decima-values-list {
+    gap: 5px !important;
+    padding: 0 !important;
+  }
+
+  .home-page .decima-home-about .decima-values-list li {
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* -----------------------------------------------------------------------
+     Home Services: mobile accordion. Only titles are visible when closed.
+     ----------------------------------------------------------------------- */
+  .home-page .decima-template-services {
+    padding: 72px 0 78px !important;
+  }
+
+  .home-page .decima-template-services .single-service-box {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-top: 1px solid rgba(255,255,255,.12) !important;
+    background: transparent !important;
+  }
+
+  .home-page .decima-template-services .col-lg-12:last-child .single-service-box {
+    border-bottom: 1px solid rgba(255,255,255,.12) !important;
+  }
+
+  .home-page .decima-template-services .single-service-box > .row {
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .home-page .decima-template-services .single-service-box > .row > [class*="col-"] {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .home-page .decima-template-services .service-inner-box,
+  .home-page .decima-template-services .service-inner-box.upper {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .home-page .decima-template-services .service-title {
+    position: relative !important;
+    padding: 20px 42px 20px 0 !important;
+    cursor: pointer !important;
+    user-select: none;
+  }
+
+  .home-page .decima-template-services .service-title::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    width: 28px;
+    height: 28px;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.52);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .home-page .decima-template-services .single-service-box.is-mobile-open .service-title::after {
+    content: "−";
+    border-color: var(--decima-burgundy);
+    color: var(--decima-burgundy);
+  }
+
+  .home-page .decima-template-services .service-title h3 {
+    margin: 0 !important;
+    font-size: 19px !important;
+    line-height: 1.28 !important;
+  }
+
+  .home-page .decima-template-services .service-thumb,
+  .home-page .decima-template-services .single-service-box > .row > .col-lg-5:nth-child(2),
+  .home-page .decima-template-services .single-service-box > .row > .col-lg-2 {
+    display: none !important;
+  }
+
+  .home-page .decima-template-services .single-service-box.is-mobile-open .service-thumb,
+  .home-page .decima-template-services .single-service-box.is-mobile-open > .row > .col-lg-5:nth-child(2),
+  .home-page .decima-template-services .single-service-box.is-mobile-open > .row > .col-lg-2 {
+    display: block !important;
+  }
+
+  .home-page .decima-template-services .single-service-box.is-mobile-open > .row > .col-lg-2 .service-inner-box,
+  .home-page .decima-template-services .single-service-box.is-mobile-open > .row > .col-lg-2 .service-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .home-page .decima-template-services .single-service-box.is-mobile-open .service-button,
+  .home-page .decima-template-services .single-service-box.is-mobile-open .service-button > a {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .home-page .decima-template-services .single-service-box.is-mobile-open .service-thumb {
+    margin: 0 0 18px !important;
+  }
+
+  .home-page .decima-template-services .single-service-box.is-mobile-open .service-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .home-page .decima-template-services .service-description {
+    padding: 0 0 3px !important;
+  }
+
+  .home-page .decima-template-services .service-description p {
+    margin: 0 0 14px !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  .home-page .decima-template-services .icon-list ul { margin: 0 !important; }
+  .home-page .decima-template-services .icon-list ul li {
+    margin-bottom: 8px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  .home-page .decima-template-services .service-button {
+    margin: 13px 0 22px !important;
+  }
+
+  .home-page .decima-template-services .service-button > a {
+    padding-right: 76px !important;
+    font-size: 13px !important;
+  }
+
+  html[data-theme="light"] .home-page .decima-template-services .single-service-box {
+    border-color: #d6d6d1 !important;
+  }
+
+  html[data-theme="light"] .home-page .decima-template-services .service-title::after {
+    border-color: rgba(16,16,16,.45) !important;
+    color: #101010 !important;
+  }
+
+  html[data-theme="light"] .home-page .decima-template-services .single-service-box.is-mobile-open .service-title::after {
+    border-color: var(--decima-burgundy) !important;
+    color: var(--decima-burgundy) !important;
+  }
+
+  /* -----------------------------------------------------------------------
+     Home Latest Work: retain a dense gallery/mosaic instead of full-width stack.
+     Cards are made tap-accessible by mobile-phone.js.
+     ----------------------------------------------------------------------- */
+  .home-page .project-area.one.decima-template-projects {
+    padding: 78px 0 90px !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: dense !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > [class*="col-"] {
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-8:first-child {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(2) {
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(3) { grid-column: 1 !important; }
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-8:nth-child(4) { grid-column: 2 !important; }
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(5) { grid-column: 1 !important; }
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(6) { grid-column: 2 !important; }
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(7) { grid-column: 1 / -1 !important; }
+
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(2) > .row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(2) > .row > [class*="col-"] {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .single-project-box {
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .project-tall .project-thumb { height: 360px !important; }
+  .home-page .project-area.one.decima-template-projects .project-small .project-thumb { height: 175px !important; }
+  .home-page .project-area.one.decima-template-projects .project-medium .project-thumb { height: 210px !important; }
+  .home-page .project-area.one.decima-template-projects .project-grid-small .project-thumb { height: 170px !important; }
+  .home-page .project-area.one.decima-template-projects .container > .row:nth-of-type(2) > .col-lg-4:nth-child(7) .project-thumb { height: 190px !important; }
+
+  .home-page .project-area.one.decima-template-projects .project-content,
+  .home-page .project-area.one.decima-template-projects .single-project-box.upper .project-content,
+  .home-page .project-area.one.decima-template-projects .project-content.style-one,
+  .home-page .project-area.one.decima-template-projects .project-small .project-content {
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 34px 9px 9px !important;
+    opacity: 1 !important;
+    background: linear-gradient(180deg, transparent, rgba(16,16,16,.92)) !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .project-content h4 {
+    margin: 0 0 2px !important;
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .project-content h3 {
+    margin: 0 !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .project-button { display: none !important; }
+  .home-page .project-area.one.decima-template-projects .project-thumb::before { display: none !important; }
+
+  .home-page .project-area.one.decima-template-projects .projects-btn {
+    grid-column: 1 / -1 !important;
+    min-height: 74px !important;
+  }
+
+  .home-page .project-area.one.decima-template-projects .projects-btn a {
+    position: relative !important;
+    margin: 24px auto 0 !important;
+  }
+
+  /* -----------------------------------------------------------------------
+     Clients / Industry Partners: heading lines remain outside the copy;
+     logo cards are compact enough for two-at-a-time mobile carousel display.
+     ----------------------------------------------------------------------- */
+  .home-page .decima-partners { padding: 58px 0 66px !important; }
+
+  .home-page .decima-partners .brand-title {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 28px !important;
+    text-align: center !important;
+  }
+
+  .home-page .decima-partners .brand-title::before,
+  .home-page .decima-partners .brand-title::after {
+    position: static !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 22px !important;
+    height: 1px !important;
+  }
+
+  .home-page .decima-partners .brand-title h4 {
+    flex: 0 1 auto !important;
+    max-width: 245px !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    letter-spacing: .08em !important;
+  }
+
+  .home-page .decima-partners .single-brand {
+    min-height: 100px !important;
+    padding: 10px !important;
+  }
+
+  .home-page .decima-partners .brand-thumb { min-height: 78px !important; }
+  .home-page .decima-partners .brand-thumb img,
+  .home-page .decima-partners .owl-carousel .owl-item img {
+    max-width: 90% !important;
+    max-height: 58px !important;
+  }
+
+  /* -----------------------------------------------------------------------
+     Related articles after an insight: two compact square thumbnails, title below.
+     ----------------------------------------------------------------------- */
+  .insight-detail-page .decima-section.is-offwhite .insight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .insight-detail-page .decima-section.is-offwhite .insight-card {
+    height: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+  }
+
+  .insight-detail-page .decima-section.is-offwhite .insight-image {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    overflow: hidden !important;
+  }
+
+  .insight-detail-page .decima-section.is-offwhite .insight-image img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .insight-detail-page .decima-section.is-offwhite .insight-body {
+    padding: 11px 1px 0 !important;
+  }
+
+  .insight-detail-page .decima-section.is-offwhite .insight-meta,
+  .insight-detail-page .decima-section.is-offwhite .insight-body p,
+  .insight-detail-page .decima-section.is-offwhite .insight-body .text-link {
+    display: none !important;
+  }
+
+  .insight-detail-page .decima-section.is-offwhite .insight-body h3 {
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .insight-detail-page .decima-section.is-offwhite .insight-body h3 a {
+    display: block !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-page .slider-area.one .row.bor-der {
+    grid-template-columns: minmax(0, 58%) minmax(0, 42%) !important;
+  }
+
+  .home-page .slider-area.one .slider-title h1,
+  .home-page .slider-area.one .slider-title h2 {
+    font-size: 28px !important;
+  }
+
+  .home-page .decima-home-about .container > .row:nth-of-type(2) {
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
+    gap: 12px !important;
+  }
+
+  .home-page .decima-home-about .about-thumb img { height: 280px !important; }
+  .home-page .decima-home-about .post-comment-description p,
+  .home-page .decima-home-about .tab-title p { font-size: 11px !important; }
+
+  .home-page .project-area.one.decima-template-projects .project-content h3 { font-size: 10px !important; }
+}

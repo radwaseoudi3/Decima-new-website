@@ -41,7 +41,8 @@
 // :: Hero Home one Slides
     if ($.fn.owlCarousel) {
         var welcomeSlider = $('.hero-slides');
-        welcomeSlider.owlCarousel({
+        var phoneHero = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+        var welcomeOptions = {
             items: 1,
             loop: true,
             autoplay: true,
@@ -50,34 +51,47 @@
             center: true,
             animateIn: 'fadeIn',
             animateOut: 'fadeOut'
-            
-        })
+        };
+        if (phoneHero) {
+            welcomeOptions.autoplayTimeout = 2800;
+            welcomeOptions.smartSpeed = 360;
+            welcomeOptions.touchDrag = true;
+            welcomeOptions.mouseDrag = true;
+            welcomeOptions.pullDrag = true;
+            welcomeOptions.animateIn = false;
+            welcomeOptions.animateOut = false;
+        }
+        welcomeSlider.owlCarousel(welcomeOptions)
 
-        welcomeSlider.on('translate.owl.carousel', function () {
-            var layer = $("[data-animation]");
-            layer.each(function () {
-                var anim_name = $(this).data('animation');
-                $(this).removeClass('animated ' + anim_name).css('opacity', '0');
+        if (!phoneHero) {
+            welcomeSlider.on('translate.owl.carousel', function () {
+                var layer = $("[data-animation]");
+                layer.each(function () {
+                    var anim_name = $(this).data('animation');
+                    $(this).removeClass('animated ' + anim_name).css('opacity', '0');
+                });
             });
-        });
 
-        $("[data-delay]").each(function () {
-            var anim_del = $(this).data('delay');
-            $(this).css('animation-delay', anim_del);
-        });
-
-        $("[data-duration]").each(function () {
-            var anim_dur = $(this).data('duration');
-            $(this).css('animation-duration', anim_dur);
-        });
-
-        welcomeSlider.on('translated.owl.carousel', function () {
-            var layer = welcomeSlider.find('.owl-item.active').find("[data-animation]");
-            layer.each(function () {
-                var anim_name = $(this).data('animation');
-                $(this).addClass('animated ' + anim_name).css('opacity', '1');
+            $("[data-delay]").each(function () {
+                var anim_del = $(this).data('delay');
+                $(this).css('animation-delay', anim_del);
             });
-        });
+
+            $("[data-duration]").each(function () {
+                var anim_dur = $(this).data('duration');
+                $(this).css('animation-duration', anim_dur);
+            });
+
+            welcomeSlider.on('translated.owl.carousel', function () {
+                var layer = welcomeSlider.find('.owl-item.active').find("[data-animation]");
+                layer.each(function () {
+                    var anim_name = $(this).data('animation');
+                    $(this).addClass('animated ' + anim_name).css('opacity', '1');
+                });
+            });
+        } else {
+            welcomeSlider.find("[data-animation]").css('opacity', '1');
+        }
     } 
 
 
@@ -393,7 +407,8 @@
 
 
 // service Active
-    $('.brand_list').owlCarousel({
+    var phoneBrands = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+    var brandOptions = {
         loop: true,
         autoplay: true,
         smartSpeed:1500,
@@ -422,7 +437,14 @@
                 items: 5
             }
         }
-    })
+    };
+    if (phoneBrands) {
+        brandOptions.smartSpeed = 500;
+        brandOptions.autoplayTimeout = 2800;
+        brandOptions.autoplayHoverPause = true;
+        brandOptions.responsive[0].items = 2;
+    }
+    $('.brand_list').owlCarousel(brandOptions)
 
 
 
