@@ -1,0 +1,20 @@
+{
+  "name": "Decima International",
+  "short_name": "Decima",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101010",
+  "theme_color": "#8b1a1c",
+  "icons": [
+    {
+      "src": "assets/images/branding/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/branding/logo-mark.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
