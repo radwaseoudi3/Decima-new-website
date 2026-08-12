@@ -1,4 +1,0 @@
-Decima Website - 11th Draft Complete Package
-This package includes the complete assets folder and all website files.
-Asset entries: 520
-Asset files: 437
