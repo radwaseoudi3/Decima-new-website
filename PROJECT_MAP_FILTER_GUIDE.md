@@ -1,25 +1,23 @@
 # Projects Map Filter Guide
 
-The Projects page uses the world map as a regional filter for the project cards below it.
+The Projects page map is a **location-only regional filter**. It does not filter, hide, or otherwise change the project cards displayed below the map.
 
 ## Region behavior
 
-- `All Regions` shows every project profile.
-- `Americas`, `EMEA`, and `APAC` show project cards associated with that region.
-- Cards marked `Global` remain visible in each region because they represent worldwide programs.
-- Clicking a map marker selects that marker's region.
+- `All Regions` shows all map location markers.
+- `Americas`, `EMEA`, and `APAC` focus the map markers on the selected region by dimming markers from the other regions.
+- Clicking a map marker selects that marker's region on the map.
+- Selecting a region has **no effect** on the project portfolio cards or their project-type filter.
 
-## Project card setup
+## Project card behavior
 
-Each `.project-card-wrap` uses two attributes:
+The project-type buttons below the map continue to control the visible project cards independently:
 
-- `data-project-regions="Americas"` or `data-project-regions="Global"`
-- `data-project-categories="Americas|Greenfield|Data Centers"`
+- `All Types`
+- `Greenfield`
+- `Brownfield`
+- `Retrofit`
+- `Technology Pilots`
+- `Sustainability`
 
-To associate a future project with more than one region, separate regions with a pipe:
-
-```html
-data-project-regions="EMEA|APAC"
-```
-
-The project-type buttons and map region selection work together. The reset button restores `All Regions` and `All Types`.
+The map and the project portfolio are intentionally independent controls.

@@ -160,6 +160,17 @@
             });
           }
 
+          const mapStatus = map.querySelector('.project-map-status');
+          if (mapStatus) {
+            const visibleMarkers = Array.from(map.querySelectorAll('.map-pin')).filter((pin) => {
+              return region === 'All' || pin.dataset.region === region;
+            }).length;
+            const markerWord = visibleMarkers === 1 ? 'marker' : 'markers';
+            mapStatus.textContent = region === 'All'
+              ? 'Showing all project location markers. The project portfolio below remains unchanged.'
+              : 'Showing ' + visibleMarkers + ' project location ' + markerWord + ' for ' + region + '. The project portfolio below remains unchanged.';
+          }
+
           const targetSelector = map.dataset.projectRegionController;
           const grid = targetSelector ? document.querySelector(targetSelector) : null;
           if (grid) {
